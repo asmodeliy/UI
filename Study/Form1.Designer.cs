@@ -39,7 +39,6 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.metroUserControl1 = new MetroFramework.Controls.MetroUserControl();
             this.dataSet1 = new System.Data.DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
@@ -49,8 +48,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Study.Properties.Resources.ramschip1;
-            this.pictureBox1.Location = new System.Drawing.Point(570, 52);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox1.Location = new System.Drawing.Point(619, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(215, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -60,10 +58,9 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.YellowGreen;
-            this.button1.Location = new System.Drawing.Point(26, 188);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Location = new System.Drawing.Point(11, 94);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 84);
+            this.button1.Size = new System.Drawing.Size(211, 108);
             this.button1.TabIndex = 2;
             this.button1.Text = "doc";
             this.button1.UseVisualStyleBackColor = false;
@@ -72,10 +69,9 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.YellowGreen;
-            this.button2.Location = new System.Drawing.Point(275, 188);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
+            this.button2.Location = new System.Drawing.Point(260, 94);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(238, 84);
+            this.button2.Size = new System.Drawing.Size(212, 107);
             this.button2.TabIndex = 3;
             this.button2.Text = "nc";
             this.button2.UseVisualStyleBackColor = false;
@@ -84,10 +80,9 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.YellowGreen;
-            this.button3.Location = new System.Drawing.Point(524, 188);
-            this.button3.Margin = new System.Windows.Forms.Padding(6);
+            this.button3.Location = new System.Drawing.Point(504, 94);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(238, 84);
+            this.button3.Size = new System.Drawing.Size(212, 107);
             this.button3.TabIndex = 4;
             this.button3.Text = "vcs";
             this.button3.UseVisualStyleBackColor = false;
@@ -96,8 +91,7 @@
             // metroCheckBox1
             // 
             this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(52, 638);
-            this.metroCheckBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.metroCheckBox1.Location = new System.Drawing.Point(28, 375);
             this.metroCheckBox1.Name = "metroCheckBox1";
             this.metroCheckBox1.Size = new System.Drawing.Size(114, 15);
             this.metroCheckBox1.TabIndex = 5;
@@ -107,10 +101,9 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.Color.YellowGreen;
-            this.button4.Location = new System.Drawing.Point(524, 284);
-            this.button4.Margin = new System.Windows.Forms.Padding(6);
+            this.button4.Location = new System.Drawing.Point(504, 209);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(238, 84);
+            this.button4.Size = new System.Drawing.Size(212, 107);
             this.button4.TabIndex = 8;
             this.button4.Text = "gnet";
             this.button4.UseVisualStyleBackColor = false;
@@ -119,10 +112,9 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.YellowGreen;
-            this.button5.Location = new System.Drawing.Point(275, 284);
-            this.button5.Margin = new System.Windows.Forms.Padding(6);
+            this.button5.Location = new System.Drawing.Point(260, 209);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(238, 84);
+            this.button5.Size = new System.Drawing.Size(212, 107);
             this.button5.TabIndex = 7;
             this.button5.Text = "lib";
             this.button5.UseVisualStyleBackColor = false;
@@ -131,10 +123,9 @@
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.YellowGreen;
-            this.button6.Location = new System.Drawing.Point(26, 284);
-            this.button6.Margin = new System.Windows.Forms.Padding(6);
+            this.button6.Location = new System.Drawing.Point(11, 208);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(238, 84);
+            this.button6.Size = new System.Drawing.Size(211, 108);
             this.button6.TabIndex = 6;
             this.button6.Text = "lef";
             this.button6.UseVisualStyleBackColor = false;
@@ -147,26 +138,16 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.statusStrip1.Location = new System.Drawing.Point(20, 978);
+            this.statusStrip1.Location = new System.Drawing.Point(11, 787);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1940, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 8, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1185, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
-            // 
-            // metroUserControl1
-            // 
-            this.metroUserControl1.Location = new System.Drawing.Point(1165, 198);
-            this.metroUserControl1.Name = "metroUserControl1";
-            this.metroUserControl1.Size = new System.Drawing.Size(646, 150);
-            this.metroUserControl1.TabIndex = 11;
-            this.metroUserControl1.UseSelectable = true;
-            this.metroUserControl1.Load += new System.EventHandler(this.metroUserControl1_Load);
             // 
             // dataSet1
             // 
@@ -174,10 +155,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1980, 1020);
-            this.Controls.Add(this.metroUserControl1);
+            this.ClientSize = new System.Drawing.Size(1207, 819);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
@@ -187,11 +167,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Padding = new System.Windows.Forms.Padding(20, 120, 20, 20);
+            this.Padding = new System.Windows.Forms.Padding(11, 60, 11, 10);
             this.Style = MetroFramework.MetroColorStyle.Silver;
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
@@ -213,7 +192,6 @@
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private MetroFramework.Controls.MetroUserControl metroUserControl1;
         private System.Data.DataSet dataSet1;
     }
 }

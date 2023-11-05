@@ -12,11 +12,56 @@ namespace Study
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm //상속 클래스 변경
     {
-        private object label1;
+        private Label docfilename;
+        private Label ncfilename;
+        private Label vcsfilename;
+        private Label leffilename;
+        private Label gnetfilename;
+        private Label libfilename;
 
         public Form1()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            docfilename = new Label
+            {
+                Location = new Point(1000, 100),
+                AutoSize = true
+            };
+            this.Controls.Add(docfilename);
+
+            ncfilename = new Label
+            {
+                Location = new Point(1000, 120),
+                AutoSize = true
+            };
+            this.Controls.Add(ncfilename);
+            vcsfilename = new Label
+            {
+                Location = new Point(1000, 140),
+                AutoSize = true
+            };
+            this.Controls.Add(vcsfilename);
+
+            leffilename = new Label
+            {
+                Location = new Point(1000, 160),
+                AutoSize = true
+            };
+            this.Controls.Add(leffilename);
+            libfilename = new Label
+            {
+                Location = new Point(1000, 180),
+                AutoSize = true
+            };
+            this.Controls.Add(libfilename);
+
+            gnetfilename = new Label
+            {
+                Location = new Point(1000, 200),
+                AutoSize = true
+            };
+            this.Controls.Add(gnetfilename);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,89 +86,56 @@ namespace Study
 
         private void doc_Click(object sender, EventArgs e)
         {
-            
+            string docFilePath = ShowFileOpenDialog();
+            docfilename.Text = "doc : " + docFilePath;
         }
 
         private void nc_Click(object sender, EventArgs e)
         {
-            ShowFileOpenDialog();
+            string ncFilePath = ShowFileOpenDialog();
+            ncfilename.Text = "nc : "+ ncFilePath;
         }
 
         private void vcs_Click(object sender, EventArgs e)
         {
-
+            string vcsFilePath = ShowFileOpenDialog();
+            vcsfilename.Text = "vcs : " + vcsFilePath;
         }
 
         private void lef_Click(object sender, EventArgs e)
         {
-
+            string lefFilePath = ShowFileOpenDialog();
+            leffilename.Text = "lef : " + lefFilePath;
         }
 
         private void lib_Click(object sender, EventArgs e)
         {
-
+            string libFilePath = ShowFileOpenDialog();
+            libfilename.Text = "lib : " + libFilePath;
         }
 
         private void gnet_Click(object sender, EventArgs e)
         {
-
+            string gnetFilePath = ShowFileOpenDialog();
+            gnetfilename.Text = "gnet : " + gnetFilePath;
         }
         public string ShowFileOpenDialog()
         {
-            //파일오픈창 생성 및 설정
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "파일 오픈 예제창";
-            ofd.FileName = "test";
-            ofd.Filter = "그림 파일 (*.jpg, *.gif, *.bmp) | *.jpg; *.gif; *.bmp; | 모든 파일 (*.*) | *.*";
+            ofd.Title = "deliverables upload";
+            ofd.FileName = "";
+            ofd.Filter = "모든 파일 (*.*)|*.*";
 
-            //파일 오픈창 로드
             DialogResult dr = ofd.ShowDialog();
 
-            //OK버튼 클릭시
             if (dr == DialogResult.OK)
             {
-                //File명과 확장자를 가지고 온다.
                 string fileName = ofd.SafeFileName;
-                //File경로와 File명을 모두 가지고 온다.
-                string fileFullName = ofd.FileName;
-                //File경로만 가지고 온다.
-                string filePath = fileFullName.Replace(fileName, "");
-
-                //출력 예제용 로직
-                label1 = "File Name  : " + fileName;
-               // label2.Text = "Full Name  : " + fileFullName;
-                //label3.Text = "File Path  : " + filePath;
-                //File경로 + 파일명 리턴
-                return fileFullName;
+                return fileName; // 선택한 파일의 전체 경로 반환
             }
-            //취소버튼 클릭시 또는 ESC키로 파일창을 종료 했을경우
-            else if (dr == DialogResult.Cancel)
+            else
             {
-                return "";
-            }
-
-            return "";
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void metroUserControl1_Load(object sender, EventArgs e)
-        {
-            if (label1 != null)
-            {
-                Console.Write(label1);
-            }
-            if (label1 != null)
-            {
-                Console.Write(label1);
+                return ""; // 취소되었을 때 빈 문자열 반환
             }
         }
     }
