@@ -38,6 +38,13 @@ namespace Study
             };
             this.Controls.Add(content);
 
+            fileContents = new Label
+            {
+                Location = new Point(1000, 220), // 조정 가능한 위치
+                AutoSize = true
+            };
+            this.Controls.Add(fileContents);
+
             ncfilename = new Label
             {
                 Location = new Point(1000, 120),
@@ -79,7 +86,7 @@ namespace Study
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -122,10 +129,10 @@ namespace Study
                 fileContents.Font = new Font("Arial", 10); // Setting a specific font
             }
         }
-            private void nc_Click(object sender, EventArgs e)
+        private void nc_Click(object sender, EventArgs e)
         {
             string ncFilePath = ShowFileOpenDialog();
-            ncfilename.Text = "nc : "+ ncFilePath;
+            ncfilename.Text = "nc : " + ncFilePath;
         }
 
         private void vcs_Click(object sender, EventArgs e)
@@ -162,8 +169,7 @@ namespace Study
 
             if (dr == DialogResult.OK)
             {
-                string fileName = ofd.SafeFileName;
-                return fileName; // 선택한 파일의 전체 경로 반환
+                return ofd.FileName; // 선택한 파일의 전체 경로 반환
             }
             else
             {
@@ -174,34 +180,48 @@ namespace Study
         {
             string content = "";
 
-            Excel.Application excelApp = new Excel.Application();
-            Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(filePath);
-            Excel._Worksheet excelWorksheet = excelWorkbook.Sheets[1]; // 첫 번째 시트 선택
-
-            Excel.Range excelRange = excelWorksheet.UsedRange;
-
-            int rowCount = excelRange.Rows.Count;
-            int colCount = excelRange.Columns.Count;
-
-            // 이중 for 루프를 사용하여 각 셀의 내용 읽기
-            for (int i = 1; i <= rowCount; i++)
+            try
             {
-                for (int j = 1; j <= colCount; j++)
+                if (File.Exists(filePath))
                 {
-                    // 각 셀의 내용을 content에 추가
-                    content += excelRange.Cells[i, j].Value2.ToString() + "\t";
+                    Excel.Application excelApp = new Excel.Application();
+                    Excel.Workbook excelWorkbook = excelApp.Workbooks.Open(filePath);
+                    Excel._Worksheet excelWorksheet = excelWorkbook.Sheets[1]; // 첫 번째 시트 선택
+
+                    Excel.Range excelRange = excelWorksheet.UsedRange;
+
+                    int rowCount = excelRange.Rows.Count;
+                    int colCount = excelRange.Columns.Count;
+
+                    // 이중 for 루프를 사용하여 각 셀의 내용 읽기
+                    for (int i = 1; i <= rowCount; i++)
+                    {
+                        for (int j = 1; j <= colCount; j++)
+                        {
+                            // 각 셀의 내용을 content에 추가
+                            content += excelRange.Cells[i, j].Value2.ToString() + "\t";
+                        }
+                        content += "\n"; // 다음 행으로 이동
+                    }
+
+                    // 리소스 정리
+                    excelWorkbook.Close();
+                    excelApp.Quit();
+
+                    ReleaseObject(excelRange);
+                    ReleaseObject(excelWorksheet);
+                    ReleaseObject(excelWorkbook);
+                    ReleaseObject(excelApp);
                 }
-                content += "\n"; // 다음 행으로 이동
+                else
+                {
+                    content = "파일이 존재하지 않습니다.";
+                }
             }
-
-            // 리소스 정리
-            excelWorkbook.Close();
-            excelApp.Quit();
-
-            ReleaseObject(excelRange);
-            ReleaseObject(excelWorksheet);
-            ReleaseObject(excelWorkbook);
-            ReleaseObject(excelApp);
+            catch (Exception ex)
+            {
+                content = $"파일을 읽는 도중 오류가 발생했습니다: {ex.Message}";
+            }
 
             return content;
         }
@@ -240,6 +260,11 @@ namespace Study
             {
                 GC.Collect();
             }
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
