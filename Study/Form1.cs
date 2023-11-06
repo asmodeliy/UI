@@ -138,5 +138,24 @@ namespace Study
                 return ""; // 취소되었을 때 빈 문자열 반환
             }
         }
+        private string ReadFileContents(string filePath)
+        {
+            if (!string.IsNullOrEmpty(filePath) && File.Exists(filePath))
+            {
+                try
+                {
+                    // 파일 내용을 읽어옵니다
+                    string fileContents = File.ReadAllText(filePath);
+
+                    // 파일 내용을 데이터로 저장하거나 필요한 작업 수행
+                    return fileContents; // 파일 내용 반환
+                }
+                catch (Exception ex)
+                {
+                    return $"Error reading file: {ex.Message}";
+                }
+            }
+            return "Invalid file path or file does not exist";
+        }
     }
 }
